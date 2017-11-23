@@ -1,4 +1,5 @@
-﻿using Coach.Module.Login;
+﻿using Coach.Module.Language;
+using Coach.Module.Login;
 using Coach.Module.Sync;
 using Coach.ViewModels;
 using Coach.Views;
@@ -56,6 +57,14 @@ namespace Coach
                 {
                     ModuleName = typeof(SyncModule).Name,
                     ModuleType = typeof(SyncModule),
+                }
+            );
+
+            moduleCatalog.AddModule(
+                new ModuleInfo()
+                {
+                    ModuleName = typeof(LanguageModule).Name,
+                    ModuleType = typeof(LanguageModule),
                 }
             );
         }
