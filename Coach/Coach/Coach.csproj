@@ -11,8 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Module\Login\Model\" />
-    <Folder Include="Module\Sync\NewFolder\" />
+    <Folder Include="Module\Sync\Service\" />
   </ItemGroup>
 
 </Project>

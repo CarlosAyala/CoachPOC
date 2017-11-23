@@ -34,6 +34,9 @@ namespace Coach
         {
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<SettingPage>();
+            Container.RegisterTypeForNavigation<AssignmentsPage>();
+            Container.RegisterTypeForNavigation<EmployeesPage>();
         }
 
         protected override void ConfigureModuleCatalog()
