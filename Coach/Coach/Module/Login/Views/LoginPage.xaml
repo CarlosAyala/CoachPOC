@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Coach.Module.Login.Views.LoginPage"
+             BackgroundColor="#00aff0">
+    <RelativeLayout>
+        <StackLayout  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center"
+                      x:Name="LoginStacklayout">
+
+
+            <Label Text="{Binding ClientWorksite}"
+                   FontSize="12"
+                   Margin="0,0,0,5"
+                   TextColor="White"
+                   FontFamily="Global User Interface"/>
+
+            <Entry x:Name="userName" Text="{Binding Username}" Placeholder="User Name*" 
+                   FontSize="14"
+                   HeightRequest="32"
+                   Margin="0,0,0,10"
+                   BackgroundColor="White"
+                   IsEnabled="{Binding Processing}"/>
+
+            <Entry x:Name="Password" IsPassword="true" Placeholder="Password*"  Text="{Binding Password}" 
+                   FontSize="14"
+                   HeightRequest="32"
+                   Margin="0,0,0,10"
+                   BackgroundColor="White"
+                   IsEnabled="{Binding Processing}"/>
+
+
+
+            <Button x:Name="SignInButton" Text="Sign in" Command="{Binding SignInCommand}" 
+                    BackgroundColor="#1976d2" 
+                    TextColor="White" 
+                    BorderRadius="4" 
+                    BorderWidth="1" 
+                    HeightRequest="36"
+                    BorderColor="#1976d2"/>
+
+
+            <Button x:Name="BackToWorksite" Text="Back To Worksite" Command="{Binding BackToWorksiteCommand}" 
+                    BackgroundColor="#1976d2" 
+                    TextColor="White" 
+                    BorderRadius="4" 
+                    BorderWidth="1" 
+                    HeightRequest="36"
+                    IsEnabled="{Binding IsBackEnabled}"
+                    IsVisible="{Binding IsFirstTimeSignIn}"
+                    BorderColor="#1976d2"/>
+
+            <ActivityIndicator x:Name="busyIndicator" Color="White" IsRunning="{Binding IsBusy}"   />
+        </StackLayout>
+
+
+        <Label Text="{Binding BusyMessage}"
+                   FontSize="12"
+                   Margin="0,0,0,0"
+                   TextColor="White"
+                   FontFamily="Global User Interface"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.65,Constant=100}"
+               />
+
+        <!-- VERSION MANUAL-->
+        <Label Text="{Binding CoachAppVersion}"
+                   FontSize="10"
+                   TextColor="White"
+                   FontFamily="Global User Interface"
+               HorizontalTextAlignment="Center"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.95}"/>
+
+        <Label Text="Copyright © 2013-2017, Alchemy Systems, LP."
+               TextColor="WhiteSmoke"
+               FontSize="8"
+               HorizontalTextAlignment="Center"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.97}">
+
+        </Label>
+
+    </RelativeLayout>
+
+</ContentPage>
