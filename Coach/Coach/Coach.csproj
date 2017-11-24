@@ -5,13 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="11.1.0" />
     <PackageReference Include="Realm" Version="2.1.0" />
     <PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.0.0.168-pre" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Module\Sync\Service\" />
   </ItemGroup>
 
 </Project>

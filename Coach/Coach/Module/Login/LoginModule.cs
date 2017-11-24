@@ -1,4 +1,6 @@
-﻿using Coach.Module.Login.Views;
+﻿using Coach.Module.Login.Service;
+using Coach.Module.Login.Service.Interface;
+using Coach.Module.Login.Views;
 using DryIoc;
 using Prism.DryIoc;
 using Prism.Modularity;
@@ -19,6 +21,12 @@ namespace Coach.Module.Login
         public void Initialize()
         {
             _container.RegisterTypeForNavigation<LoginPage>();
+        }
+
+        public void RegisterTypes()
+        {
+            _container.Register<ILogedDataService, LogedDataService>();
+            _container.Register<ISessionTimeOutService, SessionTimeOutService>();
         }
     }
 }

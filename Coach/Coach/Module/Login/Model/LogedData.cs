@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Coach.Module.Login.Model
 {
-    class LogedData
+    public class LogedData
     {
+        public string BackEndUrl { get; set; }
+        public string WorkSite { get; set; }
+        public string InternetTimeOut { get; set; }
+        public string SessionTimeOut { get; set; }
     }
 }

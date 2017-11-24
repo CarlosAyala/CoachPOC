@@ -1,5 +1,6 @@
 ﻿using Coach.Module.Language;
 using Coach.Module.Login;
+using Coach.Module.Login.Service.Interface;
 using Coach.Module.Sync;
 using Coach.ViewModels;
 using Coach.Views;
@@ -15,6 +16,9 @@ namespace Coach
 {
     public partial class App : PrismApplication
     {
+
+        protected INavigationStartPageService _navigationStartPageService;
+
         /* 
          * The Xamarin Forms XAML Previewer in Visual Studio uses System.Activator.CreateInstance.
          * This imposes a limitation in which the App class must have a default constructor. 
@@ -22,13 +26,14 @@ namespace Coach
          */
         public App() : this(null) { }
 
-        public App(IPlatformInitializer initializer) : base(initializer) { }
+        public App(IPlatformInitializer initializer) : base(initializer) {
+            _navigationStartPageService = ((PrismApplication)App.Current).Container.Resolve<INavigationStartPageService>(); ;
+        }
 
         protected override async void OnInitialized()
         {
             InitializeComponent();
-
-            await NavigationService.NavigateAsync("LoginPage");
+            await _navigationStartPageService.goToStartPage();
         }
 
         protected override void RegisterTypes()
